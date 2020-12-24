@@ -1,0 +1,383 @@
+mysql: [Warning] C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe: ignoring option '--no-beep' due to invalid value ''.
+Enter password: ***************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.0.18 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> commands;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'commands' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sql_hr             |
+| sql_inventory      |
+| sql_invoicing      |
+| sql_store          |
+| sys                |
+| world              |
++--------------------+
+10 rows in set (0.11 sec)
+
+mysql> create database sample2;
+Query OK, 1 row affected (0.22 sec)
+
+mysql> use sample2;
+Database changed
+mysql> use sample2
+Database changed
+mysql> show tables;
+Empty set (0.04 sec)
+
+mysql> create table Employees(
+    -> col1 varchar(20)
+    -> col2 int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'col2 int)' at line 3
+mysql> create Employee(
+    -> exit()
+    -> col1 varchar(20)
+    -> col2 int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Employee(
+exit()
+col1 varchar(20)
+col2 int)' at line 1
+mysql> create table Employee(
+    -> col1 varchar(20),
+    -> col2 int);
+Query OK, 0 rows affected (1.35 sec)
+
+mysql> insert info Employee values("Jackson", 18);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Employee values("Jackson", 18)' at line 1
+mysql> insert info Employee values("Jackson", 18);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Employee values("Jackson", 18)' at line 1
+mysql> insert into Employee values("Jackson", 18);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from Employee
+    -> ;
++---------+------+
+| col1    | col2 |
++---------+------+
+| Jackson |   18 |
++---------+------+
+1 row in set (0.00 sec)
+
+mysql> describe Employee;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| col1  | varchar(20) | YES  |     | NULL    |       |
+| col2  | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.04 sec)
+
+mysql> select * from Employee;
++---------+------+
+| col1    | col2 |
++---------+------+
+| Jackson |   18 |
++---------+------+
+1 row in set (0.00 sec)
+
+mysql> desc Employee
+    -> ;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| col1  | varchar(20) | YES  |     | NULL    |       |
+| col2  | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> describe city;
+ERROR 1146 (42S02): Table 'sample2.city' doesn't exist
+mysql> create database Employees(
+    -> EmpId char(10),
+    -> EmpName varchar(20),
+    -> DeptName varchar(20),
+    -> DeptId varchar(20),
+    -> gender char(1),
+    -> salary decimal(10, 2),
+    -> DateOfJoining date,
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(
+EmpId char(10),
+EmpName varchar(20),
+DeptName varchar(20),
+DeptId varchar(20),' at line 1
+mysql> create table Employeees(
+    -> EmpId char(10),
+    -> EmpName varchar(20),
+    -> DeptName varchar(20),
+    -> DeptId varchar(20),
+    -> gender char(1),
+    -> salary decimal(10, 2),
+    -> DateOfJoining date,
+    -> FirstName varchar(10),
+    -> LastName varchar(10));
+Query OK, 0 rows affected (0.94 sec)
+
+mysql> desc Employeees
+    -> ;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| EmpId         | char(10)      | YES  |     | NULL    |       |
+| EmpName       | varchar(20)   | YES  |     | NULL    |       |
+| DeptName      | varchar(20)   | YES  |     | NULL    |       |
+| DeptId        | varchar(20)   | YES  |     | NULL    |       |
+| gender        | char(1)       | YES  |     | NULL    |       |
+| salary        | decimal(10,2) | YES  |     | NULL    |       |
+| DateOfJoining | date          | YES  |     | NULL    |       |
+| FirstName     | varchar(10)   | YES  |     | NULL    |       |
+| LastName      | varchar(10)   | YES  |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> select * from Employeees
+    -> ;
+Empty set (0.00 sec)
+
+mysql> desc Employeees
+    -> ;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| EmpId         | char(10)      | YES  |     | NULL    |       |
+| EmpName       | varchar(20)   | YES  |     | NULL    |       |
+| DeptName      | varchar(20)   | YES  |     | NULL    |       |
+| DeptId        | varchar(20)   | YES  |     | NULL    |       |
+| gender        | char(1)       | YES  |     | NULL    |       |
+| salary        | decimal(10,2) | YES  |     | NULL    |       |
+| DateOfJoining | date          | YES  |     | NULL    |       |
+| FirstName     | varchar(10)   | YES  |     | NULL    |       |
+| LastName      | varchar(10)   | YES  |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> select * from Employeees;
+Empty set (0.00 sec)
+
+mysql> desc Employeees
+    -> ;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| EmpId         | char(10)      | YES  |     | NULL    |       |
+| EmpName       | varchar(20)   | YES  |     | NULL    |       |
+| DeptName      | varchar(20)   | YES  |     | NULL    |       |
+| DeptId        | varchar(20)   | YES  |     | NULL    |       |
+| gender        | char(1)       | YES  |     | NULL    |       |
+| salary        | decimal(10,2) | YES  |     | NULL    |       |
+| DateOfJoining | date          | YES  |     | NULL    |       |
+| FirstName     | varchar(10)   | YES  |     | NULL    |       |
+| LastName      | varchar(10)   | YES  |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> describe Employeees;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| EmpId         | char(10)      | YES  |     | NULL    |       |
+| EmpName       | varchar(20)   | YES  |     | NULL    |       |
+| DeptName      | varchar(20)   | YES  |     | NULL    |       |
+| DeptId        | varchar(20)   | YES  |     | NULL    |       |
+| gender        | char(1)       | YES  |     | NULL    |       |
+| salary        | decimal(10,2) | YES  |     | NULL    |       |
+| DateOfJoining | date          | YES  |     | NULL    |       |
+| FirstName     | varchar(10)   | YES  |     | NULL    |       |
+| LastName      | varchar(10)   | YES  |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> alter table Employeees
+    -> drop column DateOfJoining;
+Query OK, 0 rows affected (1.49 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe Employeees;
++-----------+---------------+------+-----+---------+-------+
+| Field     | Type          | Null | Key | Default | Extra |
++-----------+---------------+------+-----+---------+-------+
+| EmpId     | char(10)      | YES  |     | NULL    |       |
+| EmpName   | varchar(20)   | YES  |     | NULL    |       |
+| DeptName  | varchar(20)   | YES  |     | NULL    |       |
+| DeptId    | varchar(20)   | YES  |     | NULL    |       |
+| gender    | char(1)       | YES  |     | NULL    |       |
+| salary    | decimal(10,2) | YES  |     | NULL    |       |
+| FirstName | varchar(10)   | YES  |     | NULL    |       |
+| LastName  | varchar(10)   | YES  |     | NULL    |       |
++-----------+---------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> alter table Employeees
+    -> add column DateOfJoining date;
+Query OK, 0 rows affected (0.86 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe Employeees;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| EmpId         | char(10)      | YES  |     | NULL    |       |
+| EmpName       | varchar(20)   | YES  |     | NULL    |       |
+| DeptName      | varchar(20)   | YES  |     | NULL    |       |
+| DeptId        | varchar(20)   | YES  |     | NULL    |       |
+| gender        | char(1)       | YES  |     | NULL    |       |
+| salary        | decimal(10,2) | YES  |     | NULL    |       |
+| FirstName     | varchar(10)   | YES  |     | NULL    |       |
+| LastName      | varchar(10)   | YES  |     | NULL    |       |
+| DateOfJoining | date          | YES  |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> insert into Employees values('32AV4', "Abhishek", "CSE CORE", "abj56", 'M', 4342141.12, "Abhishek", "Srivastava", 12/4/2019);
+ERROR 1146 (42S02): Table 'sample2.employees' doesn't exist
+mysql> insert into Employeees values('32AV4', "Abhishek", "CSE CORE", "abj56", 'M', 4342141.12, "Abhishek", "Srivastava", 12/4/2019);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from Employeees
+    -> ;
++-------+----------+----------+--------+--------+------------+-----------+------------+---------------+
+| EmpId | EmpName  | DeptName | DeptId | gender | salary     | FirstName | LastName   | DateOfJoining |
++-------+----------+----------+--------+--------+------------+-----------+------------+---------------+
+| 32AV4 | Abhishek | CSE CORE | abj56  | M      | 4342141.12 | Abhishek  | Srivastava | 0000-00-00    |
++-------+----------+----------+--------+--------+------------+-----------+------------+---------------+
+1 row in set (0.00 sec)
+
+mysql> insert into Employeees values('232AV4', "Aabir", "CSE CORE", "abffd56", 'M', 43443141.12, "Aabir", "", 12/4/2019);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into Employeees values('232bV4', "Nimesh", "AI/ML", "abff", 'M', 43443321.12, "Nimesh", "Srivastava", 22/4/2019);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> selest * from Employeees
+    -> ';
+    '> ;
+    '> )
+    '> '
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selest * from Employeees
+';
+;
+)
+'' at line 1
+mysql> selest * from Employeees;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selest * from Employeees' at line 1
+mysql> select * from Employeees;
++--------+----------+----------+---------+--------+-------------+-----------+------------+---------------+
+| EmpId  | EmpName  | DeptName | DeptId  | gender | salary      | FirstName | LastName   | DateOfJoining |
++--------+----------+----------+---------+--------+-------------+-----------+------------+---------------+
+| 32AV4  | Abhishek | CSE CORE | abj56   | M      |  4342141.12 | Abhishek  | Srivastava | 0000-00-00    |
+| 232AV4 | Aabir    | CSE CORE | abffd56 | M      | 43443141.12 | Aabir     |            | 0000-00-00    |
+| 232bV4 | Nimesh   | AI/ML    | abff    | M      | 43443321.12 | Nimesh    | Srivastava | 0000-00-00    |
++--------+----------+----------+---------+--------+-------------+-----------+------------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> alter table Employeees
+    -> drop column DateOfJoining;
+Query OK, 0 rows affected (1.92 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from Employeees;
++--------+----------+----------+---------+--------+-------------+-----------+------------+
+| EmpId  | EmpName  | DeptName | DeptId  | gender | salary      | FirstName | LastName   |
++--------+----------+----------+---------+--------+-------------+-----------+------------+
+| 32AV4  | Abhishek | CSE CORE | abj56   | M      |  4342141.12 | Abhishek  | Srivastava |
+| 232AV4 | Aabir    | CSE CORE | abffd56 | M      | 43443141.12 | Aabir     |            |
+| 232bV4 | Nimesh   | AI/ML    | abff    | M      | 43443321.12 | Nimesh    | Srivastava |
++--------+----------+----------+---------+--------+-------------+-----------+------------+
+3 rows in set (0.02 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_sample2 |
++-------------------+
+| employee          |
+| employeees        |
++-------------------+
+2 rows in set (0.14 sec)
+
+mysql> desc employee
+    -> ;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| col1  | varchar(20) | YES  |     | NULL    |       |
+| col2  | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> drop table employee
+    -> ;
+Query OK, 0 rows affected (0.94 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_sample2 |
++-------------------+
+| employeees        |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employeees
+    -> ;
++--------+----------+----------+---------+--------+-------------+-----------+------------+
+| EmpId  | EmpName  | DeptName | DeptId  | gender | salary      | FirstName | LastName   |
++--------+----------+----------+---------+--------+-------------+-----------+------------+
+| 32AV4  | Abhishek | CSE CORE | abj56   | M      |  4342141.12 | Abhishek  | Srivastava |
+| 232AV4 | Aabir    | CSE CORE | abffd56 | M      | 43443141.12 | Aabir     |            |
+| 232bV4 | Nimesh   | AI/ML    | abff    | M      | 43443321.12 | Nimesh    | Srivastava |
++--------+----------+----------+---------+--------+-------------+-----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> update employeees set empname = "Saksham" where empid = 232AV4;
+ERROR 1054 (42S22): Unknown column '232AV4' in 'where clause'
+mysql> update Employeees set empname = "Saksham" where EmpId = 232AV4;
+ERROR 1054 (42S22): Unknown column '232AV4' in 'where clause'
+mysql> update employeees set EmpName = "Saksham" wupdate here EmpId = 232AV4;
+ERROR 1054 (42S22): Unknown column '232AV4' in 'where clause'
+mysql> update employeees set EmpName = "Saksham" where EmpId = 32AV4;
+ERROR 1054 (42S22): Unknown column '32AV4' in 'where clause'
+mysql> update employeees set EmpName = "Saksham" where EmpId = "32AV4";
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employeees;
++--------+---------+----------+---------+--------+-------------+-----------+------------+
+| EmpId  | EmpName | DeptName | DeptId  | gender | salary      | FirstName | LastName   |
++--------+---------+----------+---------+--------+-------------+-----------+------------+
+| 32AV4  | Saksham | CSE CORE | abj56   | M      |  4342141.12 | Abhishek  | Srivastava |
+| 232AV4 | Aabir   | CSE CORE | abffd56 | M      | 43443141.12 | Aabir     |            |
+| 232bV4 | Nimesh  | AI/ML    | abff    | M      | 43443321.12 | Nimesh    | Srivastava |
++--------+---------+----------+---------+--------+-------------+-----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> update employeees set EmpName = "Abhishek" where EmpId = "32AV4";
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employeees;
++--------+----------+----------+---------+--------+-------------+-----------+------------+
+| EmpId  | EmpName  | DeptName | DeptId  | gender | salary      | FirstName | LastName   |
++--------+----------+----------+---------+--------+-------------+-----------+------------+
+| 32AV4  | Abhishek | CSE CORE | abj56   | M      |  4342141.12 | Abhishek  | Srivastava |
+| 232AV4 | Aabir    | CSE CORE | abffd56 | M      | 43443141.12 | Aabir     |            |
+| 232bV4 | Nimesh   | AI/ML    | abff    | M      | 43443321.12 | Nimesh    | Srivastava |
++--------+----------+----------+---------+--------+-------------+-----------+------------+
+3 rows in set (0.00 sec)
+
+mysql>

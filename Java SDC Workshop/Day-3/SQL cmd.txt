@@ -1,0 +1,15 @@
+MySQL  -  blackrider12345
+commands;
+show databases;
+create database sample2;
+use sample2
+show tables;
+create table Employees(
+	col1 varchar(20),
+	col2 int);
+insert into Employees values("Jack", 24);
+select * from Employees;
+describe Employees;
+
+
+

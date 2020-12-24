@@ -1,0 +1,13 @@
+1) SHOW databases;
+2) show tables;
+
+3) create database <database name>;
+4) use <database name>
+5) create table <table name>;
+
+6) select * from <table name>;
+7) insert into <table name> values(<data>);
+
+8) describe <table name>;
+9) UPDATE <table name> SET <columnname> = <value>  WHERE <column name>=<value>;
+

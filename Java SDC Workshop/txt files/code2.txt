@@ -1,0 +1,31 @@
+import java.awt.*;
+import java.awt.event.*;
+
+//Setting buttons on the edges
+
+class MyBorder extends Frame {
+	
+	Button b1,b2,b3,b4;
+	
+	MyBorder() {
+		
+		setSize(100,100);
+		setVisible(true);
+		setBackground(Color.BLUE);
+		b1 = new Button("North");
+		b2 = new Button("South");
+		b3 = new Button("East");
+		b4 = new Button("West");
+		
+		add(b1, BorderLayout.NORTH);
+		add(b2, BorderLayout.SOUTH);
+		add(b3, BorderLayout.EAST);
+		add(b4, BorderLayout.WEST);
+		
+	}
+	
+	public static void main(String args[]) {
+		
+		MyBorder b = new MyBorder();
+	}
+}

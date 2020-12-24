@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Temp",
+            "request": "launch",
+            "mainClass": "Temp",
+            "projectName": "Java SDC Workshop_82d4a8c6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - swing2",
+            "request": "launch",
+            "mainClass": "swing2",
+            "projectName": "Java SDC Workshop_82d4a8c6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Pyramid",
+            "request": "launch",
+            "mainClass": "Pyramid",
+            "projectName": "Java SDC Workshop_82d4a8c6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Abc",
+            "request": "launch",
+            "mainClass": "Abc"
+        }
+    ]
+}

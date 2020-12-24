@@ -1,0 +1,231 @@
+package <PackageName>;
+public class <ClassName>
+{
+    public static void main(String args[])
+    {
+        try{
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        System.out.println("Driver Loaded");
+        }
+        catch(ClassNotFoundException e)
+        {
+            System.out.println("Driver not Loaded");
+         }
+
+    }
+}
+
+
+
+
+package Connect;
+
+
+import java.sql.*;
+public class MySQlConn 
+{
+    public static void main(String args[])
+    {
+        String s="create table Tb1(col1 int, col2 varchar(20))";
+        Connection c=null;
+       String url="jdbc:mysql://localhost:3306/sample1";
+        try{
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        System.out.println("Driver Loaded");
+        c=DriverManager.getConnection(url,"root", "#Saksh02");
+        System.out.println("connection established");
+        Statement stmt=c.createStatement();
+        ResultSet re=stmt.executeQuery("select * from orders");
+        while(re.next())
+        {
+            System.out.println(re.getInt(1)+"  "+re.getString(2)+"  "+re.getString(3)); 
+        }
+        ResultSet r1=stmt.executeQuery("select * from Employees");
+        while(r1.next())
+        {
+            System.out.println(r1.getString(1)+" "+r1.getString(2)+" "+r1.getString(3));
+        }
+        System.out.println("sql updated");
+        }
+        catch(ClassNotFoundException e)
+        {
+            System.out.println("Driver not Loaded");
+    }
+        catch(SQLException e)
+        {
+            System.out.println("connection not established");
+        }
+        try{
+        c.close();
+          }
+        catch(SQLException e)
+        {
+          System.out.println("error");
+        }
+    }
+}
+
+
+
+
+package pack;
+import javax.swing.*;
+import java.awt.event.*;
+import java.sql.*;
+public class Swing7 implements ActionListener
+{
+    JFrame j1;
+    JLabel l1,l2,l3,l4,l5,l6;
+    JButton b;
+    Swing7()
+    {
+        j1=new JFrame("Sample Frame");
+        l1=new JLabel("personId");
+        l1.setBounds(50,100,100,30);
+        l2=new JLabel("orderId");
+        l2.setBounds(50,150,100,30);
+        l3=new JLabel("orderNumber");
+        l3.setBounds(50,200,100,30);
+        
+        l4=new JLabel();
+        l4.setBounds(150,100,150,20);
+        l5=new JLabel();
+        l5.setBounds(150,150,150,20);
+        l6=new JLabel();
+        l6.setBounds(150,200,150,20);
+        b=new JButton("click");
+        b.setBounds(50,300,100,100);
+        b.addActionListener(this);
+        j1.add(l1);
+        j1.add(l2);
+        j1.add(l3);
+        j1.add(l4);
+        j1.add(l5);
+        j1.add(l6); 
+        j1.add(b);
+        j1.setSize(400,400);
+        j1.setLayout(null);
+        j1.setVisible(true);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        if(e.getSource()==b)
+        {
+            Connection c=null;
+            String url="jdbc:mysql://localhost:3306/sample1";
+            try
+            {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        System.out.println("Driver Loaded");
+        c=DriverManager.getConnection(url,"root", "#Saksh02");
+        System.out.println("connection established");
+        Statement stmt=c.createStatement();
+        String sql ="select * from orders where personId=3;";
+        ResultSet re=stmt.executeQuery(sql);
+        while(re.next())
+        {
+            l4.setText(re.getString(1));
+            l5.setText(re.getString(2));
+            l6.setText(re.getString(3));
+        }
+	c.close();
+            }
+           catch(SQLException e1)
+        {
+            System.out.println("connection not established"+e1);
+        }
+           catch(ClassNotFoundException e2)
+        {
+            System.out.println("Driver not Loaded");
+    }
+        }
+    }
+    public static void main(String args[])
+    {
+        Swing7 ob=new Swing7();
+    }
+}
+
+
+
+
+
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.sql.*;
+public class Swing5 implements ActionListener
+{
+    JFrame j1;
+    JLabel l1,l2,l3;
+    JTextField t1,t2,t3;
+    JButton b;
+    Swing5()
+    {
+        j1=new JFrame("Sample Frame");
+        l1=new JLabel("personId");
+        l1.setBounds(50,100,100,30);
+        l2=new JLabel("orderId");
+        l2.setBounds(50,150,100,30);
+        l3=new JLabel("orderNumber");
+        l3.setBounds(50,200,100,30);
+        
+        t1=new JTextField();
+        t1.setBounds(150,100,150,20);
+        t2=new JTextField();
+        t2.setBounds(150,150,150,20);
+        t3=new JTextField();
+        t3.setBounds(150,200,150,20);
+        
+        b=new JButton("click");
+        b.setBounds(50,300,100,100);
+        b.addActionListener(this);
+        j1.add(l1);
+        j1.add(l2);
+        j1.add(l3);
+        j1.add(t1);
+        j1.add(t2);
+        j1.add(t3); 
+        j1.add(b);
+        j1.setSize(400,400);
+        j1.setLayout(null);
+        j1.setVisible(true);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        if(e.getSource()==b)
+        {
+            int p=Integer.parseInt(t1.getText());
+            int o=Integer.parseInt(t2.getText());
+            int on=Integer.parseInt(t3.getText());
+            System.out.println(p+" "+o+" "+on);
+            Connection c=null;
+            String url="jdbc:mysql://localhost:3306/sample1";
+            try
+            {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        System.out.println("Driver Loaded");
+        c=DriverManager.getConnection(url,"root", "#Saksh02");
+        System.out.println("connection established");
+        Statement stmt=c.createStatement();
+        String sql ="insert into orders values ( '" +p+ "' , '" +o+ "' , '" +on+ "' )";
+        stmt.executeUpdate(sql);
+	c.close();
+            }
+           catch(SQLException e1)
+        {
+            System.out.println("connection not established"+e1);
+        }
+           catch(ClassNotFoundException e2)
+        {
+            System.out.println("Driver not Loaded");
+    }
+        }
+    }
+    public static void main(String args[])
+    {
+        Swing5 ob=new Swing5();
+    }
+}
